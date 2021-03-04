@@ -6,7 +6,7 @@ if op in ["mod", "pow", "div", "+", "-", "/", "*"]:
         print("Деление на 0!")
     else:
         if op == "mod":
-            print (a % b)
+            print(a % b)
         elif op == "pow":
             print(a ** b)
         elif op == "div":
