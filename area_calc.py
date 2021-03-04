@@ -6,7 +6,7 @@ if figure_name == "треугольник":
     if a > 0 and b > 0 and c > 0:
         p = (a + b + c) / 2
         s = (p * (p - a) * (p - b) * (p - c)) ** 0.5
-        print(s)
+        print(float(s))
     else:
         print("Wrong")
 elif figure_name == "прямоугольник":
@@ -14,7 +14,7 @@ elif figure_name == "прямоугольник":
     b = int(input())
     if a > 0 and b > 0:
         s = a * b
-        print(s)
+        print(float(s))
     else:
         print("Wrong")
 elif figure_name == "круг":
