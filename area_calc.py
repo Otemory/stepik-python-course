@@ -1,0 +1,1 @@
+figure_name = input()
