@@ -5,12 +5,11 @@
 если число больше 100, то прекращаем считывать числа;
 в остальных случаях вывести это число обратно на консоль в отдельной строке. """
 
-a = int(input())
-while a is not float(a):
+i = 1
+while i:
+    a = int(input())
+    if a > 100:
+        break
     if a < 10:
         continue
-    else:
-        if a > 100:
-            break
-        print(a)
-        a = int(input())
+    print(a)
