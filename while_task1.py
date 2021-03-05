@@ -8,5 +8,10 @@ while a != 0:
     mass.append(a)
     a = int(input())
 print(sum(mass))
-
-
+###
+a = int(input())
+summa = 0
+while a != 0:
+    summa += a
+    a = int(input())
+print(summa)
