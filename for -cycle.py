@@ -23,14 +23,16 @@ for i in range(n):
 Следуйте формату вывода из примера, для разделения элементов внутри строки используйте '\t' — символ табуляции. 
 Заметьте, что левым столбцом и верхней строкой выводятся сами числа из заданных отрезков — заголовочные столбец и строка таблицы."""
 
-# a, b, c, d = int(input()), int(input()), int(input()), int(input())
-a, b, c, d = 7, 10, 5, 6
-
-if a <= 10 and b <= 10 and c <= 10 and d <= 10:
-    for i in range(a, b +1):
-        for j in range(c, d + 1):
-            print(i * j, end="\t")
-        print()
+a, b, c, d = int(input()), int(input()), int(input()), int(input())
+# a, b, c, d = 7, 10, 5, 8
+for g in range(c, d + 1):
+    print("\t", g, end="")
+print()
+for i in range(a, b + 1):
+    print(i, end="\t")
+    for j in range(c, d + 1):
+        print(j*i, end="\t")
+    print()
 
 
 else:
