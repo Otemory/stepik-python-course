@@ -1,4 +1,4 @@
-
+# мое решение
 a = int(input())
 if 0 <= a <= 1000:
     b = a % 100
@@ -22,4 +22,14 @@ if 0 <= a <= 1000:
 
 else:
     print("error")
+# not mine но улучшеное и дополненное
 
+a = int(input())
+a10 = a % 10
+a100 = a % 100
+if a10 == 1 and a100 != 11:
+    print(a, "программист")
+elif (a10 in [2, 3, 4]) and (a100 not in [12, 13, 14]):
+    print(a, "программиста")
+else:
+    print(a, "программистов")
