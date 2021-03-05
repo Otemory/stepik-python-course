@@ -1,20 +1,15 @@
-ticket_number = input()
-spisok = list(ticket_number)
+t_n = input()
 
-a, b, c, d, e, f = int(ticket_number[0]), int(ticket_number[1]), int(ticket_number[2]), int(ticket_number[3]), int(ticket_number[4]), int(ticket_number[5])
+a, b, c, d, e, f = int(t_n[0]), int(t_n[1]), int(t_n[2]), int(t_n[3]), int(t_n[4]), int(t_n[5])
+
 start = a + b + c
 finish = d + e + f
 if start == finish:
     print("Счастливый")
 else:
     print("Обычный")
-'''
-print(a + b + c)
-print(d + e + f)
+# not mine
 
+nums = [int(i) for i in input()]
 
-a = int(ticket_number[0:3])
-b = int(ticket_number[3:])
-print(a)
-print(b)
-'''
+print("Счастливый" if sum(nums[:3]) == sum(nums[3:]) else "Обычный")
