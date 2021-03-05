@@ -25,14 +25,15 @@ for i in range(n):
 
 a, b, c, d = int(input()), int(input()), int(input()), int(input())
 # a, b, c, d = 7, 10, 5, 8
-for g in range(c, d + 1):
-    print("\t", g, end="")
-print()
-for i in range(a, b + 1):
-    print(i, end="\t")
-    for j in range(c, d + 1):
-        print(j*i, end="\t")
+if a <= 10 or b <= 10 or c <= 10 or d <= 10:
+    for g in range(c, d + 1):
+        print("\t", g, end="")
     print()
+    for i in range(a, b + 1):
+        print(i, end="\t")
+        for j in range(c, d + 1):
+            print(j*i, end="\t")
+        print()
 
 
 else:
