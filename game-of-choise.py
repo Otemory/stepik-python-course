@@ -9,12 +9,26 @@ def is_valid(number):
         return False
 
 
+def is_valid2(number):
+    if number.isdigit():
+        if int(number) >= 10:
+            return True
+    else:
+        return False
+
+
 print('Добро пожаловать в числовую угадайку')
 answer = input('Хотите сыграть? да/нет ')
 while answer.lower() == 'да':
-    num = randint(1, 100)
+    n = input('Ведите число от 10, иначе совсем не интересно: ')
+    if not is_valid2(n):
+        print('А может быть все-таки введем целое число от 10?')
+        continue
+    else:
+        n = int(n)
+        num = randint(1, n)
 
-    cnt = 0
+    cnt = 1
     while True:
         guess = input('Ведите число от 1 до 100: ')
 
