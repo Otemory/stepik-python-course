@@ -1,12 +1,7 @@
-#   импортируем библиотеки
-from random import randint
+from random import randint  # импортируем библиотеки
 
 
-#   Назначаем функции
-#   проверка Ответа на да нет
-
-
-def yes_no(text):
+def yes_no(text):   # проверка Ответа на да нет
     if text.lower() == 'да':
         return True
     elif text.lower() == 'нет':
@@ -15,8 +10,7 @@ def yes_no(text):
         return yes_no(input('Не понял ваш ответ. попробуйте еще раз да/нет '))
 
 
-#   Проверка границы на число
-def is_valid(num):
+def is_valid(num):   # Проверка границы на число
     if num.isdigit():
         if int(num) >= 10:
             return int(num)
@@ -26,8 +20,7 @@ def is_valid(num):
         return is_valid(input('А может быть все-таки введем целое число от 10? '))
 
 
-#   Проверка числа на число и в границах ли
-def is_valid_2(num, amount):
+def is_valid_2(num, amount):   # Проверка числа на число и в границах ли
     if num.isdigit():
         if int(num) in range(1, amount + 1):
             return int(num)
@@ -37,8 +30,7 @@ def is_valid_2(num, amount):
         return is_valid_2(input(f'А может быть все-таки введем целое число от 1 до {amount}? '), amount)
 
 
-#    Игра
-def game():
+def game():   # Игра
     game_number = randint(1, amount)
     cnt = 1
     while True:
@@ -54,7 +46,6 @@ def game():
             break
 
 
-
 #    Приветствие
 print('Добро пожаловать в числовую угадайку')
 
@@ -65,8 +56,3 @@ while answer:
     amount = is_valid(input('Ведите число от 10, иначе совсем не интересно: '))
     game()
     answer = yes_no(input('Хотите сыграть еще? да/нет '))
-
-
-
-
-
