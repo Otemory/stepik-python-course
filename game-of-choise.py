@@ -1,51 +1,72 @@
-from random import *
+#   импортируем библиотеки
+from random import randint
 
 
-def is_valid(number):
-    if number.isdigit():
-        if int(number) in range(1, 101):
-            return True
+#   Назначаем функции
+#   проверка Ответа на да нет
+
+
+def yes_no(text):
+    if text.lower() == 'да':
+        return True
+    elif text.lower() == 'нет':
+        return print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
     else:
-        return False
+        return yes_no(input('Не понял ваш ответ. попробуйте еще раз да/нет '))
 
 
-def is_valid2(number):
-    if number.isdigit():
-        if int(number) >= 10:
-            return True
+#   Проверка границы на число
+def is_valid(num):
+    if num.isdigit():
+        if int(num) >= 10:
+            return int(num)
+        else:
+            return is_valid(input('А может быть все-таки введем целое число от 10? '))
     else:
-        return False
+        return is_valid(input('А может быть все-таки введем целое число от 10? '))
 
 
-print('Добро пожаловать в числовую угадайку')
-answer = input('Хотите сыграть? да/нет ')
-while answer.lower() == 'да':
-    n = input('Ведите число от 10, иначе совсем не интересно: ')
-    if not is_valid2(n):
-        print('А может быть все-таки введем целое число от 10?')
-        continue
+#   Проверка числа на число и в границах ли
+def is_valid_2(num, amount):
+    if num.isdigit():
+        if int(num) in range(1, amount + 1):
+            return int(num)
+        else:
+            return is_valid_2(input(f'А может быть все-таки введем целое число от 1 до {amount}? '), amount)
     else:
-        n = int(n)
-        num = randint(1, n)
+        return is_valid_2(input(f'А может быть все-таки введем целое число от 1 до {amount}? '), amount)
 
+
+#    Игра
+def game():
+    game_number = randint(1, amount)
     cnt = 1
     while True:
-        guess = input('Ведите число от 1 до 100: ')
-
-        if not is_valid(guess):
-            print('А может быть все-таки введем целое число от 1 до 100?')
-            continue
+        guess = is_valid_2(input(f'Введите число от одного до {amount} '), amount)
+        if guess > game_number:
+            print('Слишком много, попробуйте еще раз ')
+            cnt += 1
+        elif guess < game_number:
+            print('Слишком мало, попробуйте еще раз ')
+            cnt += 1
         else:
-            guess = int(guess)
-            if guess > num:
-                print('Слишком много, попробуйте еще раз')
-                cnt += 1
-            elif guess < num:
-                print('Слишком мало, попробуйте еще раз')
-                cnt += 1
-            else:
-                print(f'Вы угадали c {cnt} попытки, поздравляем!')
-                break
-    answer = input('Хотите сыграть еще? да/нет ')
-else:
-    print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
+            print(f'Вы угадали c {cnt} попытки, поздравляем!')
+            break
+
+
+
+#    Приветствие
+print('Добро пожаловать в числовую угадайку')
+
+#    Хотите сыграть
+answer = yes_no(input('Хотите сыграть? да/нет '))
+#    Начинаем игру
+while answer:
+    amount = is_valid(input('Ведите число от 10, иначе совсем не интересно: '))
+    game()
+    answer = yes_no(input('Хотите сыграть еще? да/нет '))
+
+
+
+
+
